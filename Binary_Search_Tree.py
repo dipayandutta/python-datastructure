@@ -1,50 +1,56 @@
 # -*- coding: utf-8 -*-
 
-class BT(object):
+class Node(object):
     
-    def __init__(self,value):
-        self.value = value
-        self.left  = None
+    def __init__(self,data):
+        self.left = None
         self.right = None
+        self.data = data
         
-    def is_leaf(self):
+    def insert(self,data):
         
-        return self.left is None and self.right is None
-        
-    def insert_left(self,new_node):
-        if not self.left:
-            self.left = BT(new_node)
+        if self.data:
+            if data < self.data:
+                if self.left is None:
+                    self.left = Node(data)
+                else:
+                    self.left.insert(data)
+                    
+            elif data > self.data:
+                if self.right is None:
+                    self.right = Node(data)
+                else:
+                    self.right.insert(data)
+                    
         else:
-            t = BT(self.left)
-            t.left = new_node
-            self.left = t
+            self.data = data
             
-    def insert_right (self,new_node):
-        if not self.right:
-            self.right = BT(new_node)
-        else:
-            t = BT(self.right)
-            t.right = new_node
-            self.right = t
-    def __repr__(self):
-        return '{}'.format(self.value)
+    def find(self,val):
         
-    
-def test_BT():
-    
-    tree = BT(1)
-    tree.insert_left(2)
-    tree.insert_right(3)
-    
-    tree.left().insert_left(4)
-    tree.left().insert_right(5)
-    
-    tree.right().insert_left(6)
-    tree.right().insert_right(7)
-    
-    print tree.right().right()
-    
-    print tree.right().is_leaf()
-    
-if __name__ == '__main__':
-    test_BT()
+        if val < self.data:
+            if self.left is None:
+                return str(val)+" Not Found in the Binary Tree"
+            return self.left.find(val)
+        elif val > self.data:
+            if self.right is None:
+                return str(val) + "Not Found"
+            return self.right.find(val)
+            
+        else:
+            print "{} found ".format(self.data)
+            
+    def PrintTree(self):
+        if self.left:
+            self.left.PrintTree()
+        print self.data
+        if self.right:
+            self.right.PrintTree()
+            
+root = Node(12)
+root.insert(5)
+root.insert(14)
+root.insert(10)
+root.PrintTree()
+
+print root.find(3)
+print root.find(5)
