@@ -1,0 +1,26 @@
+
+Asymptotic analysis is a method to describe the limiting behavior and the performance of algorithms when applied to very
+large imput datasets.
+
+
+A Complexity class is a set of problems with related complexity . A reduction is a transformation of one problem into another
+problem which is at least as difficult as the original problem. 
+
+P
+===
+The complexity class of deceision problems that can be solved on a deterministic turing machine in polynomial time(in the worst case) .
+
+NP
+===
+The complexity class of decision problems that can be solved on a non-deterministic Turing machine(NTM) in polynomial time.
+
+
+Recursion
+----------------
+
+The three laws of recursion are :
+
+1) A recursive algorithm must have a base case .
+2) A recursive algorithm must change its state and move toward the base case
+3) A recursice algorithm must call itself recursively . 
+
