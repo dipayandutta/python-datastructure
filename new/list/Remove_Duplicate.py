@@ -13,7 +13,7 @@ def duplicate_position(dup_list):
     print ("Given List after Sorting {0}".format(dup_list))
     for item in range(0,len(dup_list)-1):
         if dup_list[item] == dup_list[item+1]:
-            print ("Same Item Found at the position {0} ".format(item))
+            print ("Same Item Found at the position {0} and {1}".format(item,item+1))
             dup_items.append(dup_list[item])
         else:
             pass
